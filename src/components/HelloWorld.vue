@@ -8,11 +8,16 @@
           </div>
 
           <template slot="popover">
-            <div>
+            <!-- <div>
               <input class="tooltip-content" v-model="msg" placeholder="Tooltip content" />
               <p>{{ msg }}</p>
 
               <div style="width:80vw">hello</div>
+            </div>-->
+            <div class="my-grid" style="width:80vw">
+              <div v-for="n in dataList" :key="n" :class="(n==3)?'active':''">
+                <div>{{n}}</div>
+              </div>
             </div>
           </template>
         </v-popover>
@@ -25,7 +30,8 @@
 export default {
   data: () => {
     return {
-      msg: "hello"
+      msg: "hello",
+      dataList: [1, 2, 3, 4, 5, 6, 7, 8]
     };
   }
 };
@@ -42,7 +48,20 @@ export default {
 .btn-style {
   position: absolute;
   right: 20px;
-  top:15px;
+  top: 15px;
+}
+
+.my-grid {
+  display: flex;
+  flex-wrap: wrap;
+  & > div {
+    background: yellow;
+    margin: 1%;
+    flex: 1 1 48%;
+    &.active {
+      background: yellowgreen;
+    }
+  }
 }
 </style>
 
@@ -144,7 +163,6 @@ body,
       padding: 24px;
       border-radius: 5px;
       box-shadow: 0 5px 30px rgba(black, 0.1);
-
     }
 
     .popover-arrow {
