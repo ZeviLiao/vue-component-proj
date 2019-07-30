@@ -4,7 +4,9 @@ import App from './App.vue'
 // // require styles
 // import 'swiper/dist/css/swiper.css'
 // Vue.use(VueAwesomeSwiper, /* { default global options } */)
+import VTooltip from 'v-tooltip'
 
+Vue.use(VTooltip)
 Vue.config.productionTip = false
 
 new Vue({
